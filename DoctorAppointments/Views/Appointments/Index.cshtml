@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DoctorAppointments.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.appoinmtentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startAppTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endAppTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doctor.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.appoinmtentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startAppTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endAppTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isAvailable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doctor.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.password)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.appointmentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.appointmentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.appointmentID })
+        </td>
+    </tr>
+}
+
+</table>
