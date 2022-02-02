@@ -18,9 +18,9 @@
             <PropertyRef Name="appointmentID" />
           </Key>
           <Property Name="appointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="appoinmtentDate" Type="date" Nullable="false" />
-          <Property Name="startAppTime" Type="datetime" Nullable="false" />
-          <Property Name="endAppTime" Type="datetime" Nullable="false" />
+          <Property Name="appointmentDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="startAppTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="endAppTime" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="doctorAMKA" Type="bigint" Nullable="false" />
           <Property Name="patientAMKA" Type="bigint" />
           <Property Name="isAvailable" Type="bit" Nullable="false" />
@@ -104,9 +104,9 @@
             <PropertyRef Name="appointmentID" />
           </Key>
           <Property Name="appointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="appoinmtentDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="startAppTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="endAppTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="appointmentDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="startAppTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="endAppTime" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="doctorAMKA" Type="Int64" Nullable="false" />
           <Property Name="patientAMKA" Type="Int64" />
           <Property Name="isAvailable" Type="Boolean" Nullable="false" />
@@ -162,7 +162,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AppointmentsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AppointmentsEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Appointments" EntityType="Self.Appointment" />
           <EntitySet Name="Doctors" EntityType="Self.Doctor" />
@@ -181,7 +181,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AppointmentsModelStoreContainer" CdmEntityContainer="AppointmentsEntities">
+        <EntityContainerMapping StorageEntityContainer="AppointmentsModelStoreContainer" CdmEntityContainer="AppointmentsEntities2">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="AppointmentsModel.Admin">
               <MappingFragment StoreEntitySet="Admins">
@@ -195,7 +195,7 @@
             <EntityTypeMapping TypeName="AppointmentsModel.Appointment">
               <MappingFragment StoreEntitySet="Appointments">
                 <ScalarProperty Name="appointmentID" ColumnName="appointmentID" />
-                <ScalarProperty Name="appoinmtentDate" ColumnName="appoinmtentDate" />
+                <ScalarProperty Name="appointmentDate" ColumnName="appointmentDate" />
                 <ScalarProperty Name="startAppTime" ColumnName="startAppTime" />
                 <ScalarProperty Name="endAppTime" ColumnName="endAppTime" />
                 <ScalarProperty Name="doctorAMKA" ColumnName="doctorAMKA" />

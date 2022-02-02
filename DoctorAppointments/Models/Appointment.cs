@@ -15,7 +15,7 @@ namespace DoctorAppointments.Models
     public partial class Appointment
     {
         public int appointmentID { get; set; }
-        public System.DateTime appoinmtentDate { get; set; }
+        public System.DateTime appointmentDate { get; set; }
         public System.DateTime startAppTime { get; set; }
         public System.DateTime endAppTime { get; set; }
         public long doctorAMKA { get; set; }

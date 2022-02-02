@@ -12,7 +12,7 @@ namespace DoctorAppointments.Controllers
 {
     public class AppointmentsController : Controller
     {
-        private AppointmentsEntities db = new AppointmentsEntities();
+        private AppointmentsEntities2 db = new AppointmentsEntities2();
 
 
 
@@ -28,6 +28,30 @@ namespace DoctorAppointments.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
             //return View(appointment)
         }
+
+        [HttpPost]
+        public ActionResult MakeAnAppointment(int appointmentID, long patientAMKA)
+        {
+            Appointment appointment = db.Appointments.Find(appointmentID);
+            appointment.isAvailable = false;
+            appointment.patientAMKA = patientAMKA;
+            db.SaveChanges();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        [HttpPost]
+        public ActionResult CancelAppointment(Appointment appointment)
+        {
+            Appointment app = db.Appointments.Find(appointment.appointmentID);
+            app.isAvailable = false;
+            app.patientAMKA = null;
+            db.SaveChanges();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        
+
+    }
 
 
 
@@ -149,5 +173,5 @@ namespace DoctorAppointments.Controllers
         //    }
         //    base.Dispose(disposing);
         //}
-    }
+    
 }

@@ -12,7 +12,7 @@ namespace DoctorAppointments.Controllers
 {
     public class Doctors1Controller : Controller
     {
-        private AppointmentsEntities db = new AppointmentsEntities();
+        private AppointmentsEntities2 db = new AppointmentsEntities2();
 
         [HttpPost]
         public ActionResult DoctorRegister(Doctor doctor)
@@ -27,6 +27,12 @@ namespace DoctorAppointments.Controllers
             //return View(appointment)
         }
 
+        [HttpGet]
+        public ActionResult FindDoctorsBySpeciality(string speciality)
+        {
+            List<Doctor> doctors = db.Doctors.Where(x => x.speciality == speciality).ToList();
+            return View(doctors);
+        }
 
         // GET: Doctors1
         //public ActionResult Index()

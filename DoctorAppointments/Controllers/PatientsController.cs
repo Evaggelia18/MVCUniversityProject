@@ -12,7 +12,7 @@ namespace DoctorAppointments.Controllers
 {
     public class PatientsController : Controller
     {
-        private AppointmentsEntities db = new AppointmentsEntities();
+        private AppointmentsEntities2 db = new AppointmentsEntities2();
 
 
         [HttpGet]
@@ -54,6 +54,17 @@ namespace DoctorAppointments.Controllers
             db.SaveChanges();
             return new HttpStatusCodeResult(HttpStatusCode.OK);
             //return View(patient)
+        }
+
+        [HttpGet]
+        public ActionResult PreviousAppointments()
+        {
+            DateTime currentDate = DateTime.Now;
+            List<Appointment> previousAppointments = db.Appointments
+                                                        .Where(x=>x.appointmentDate <= currentDate)
+                                                        .ToList();
+            return View(previousAppointments);
+
         }
 
         // GET: Patients

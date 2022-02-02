@@ -13,10 +13,10 @@ namespace DoctorAppointments.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AppointmentsEntities : DbContext
+    public partial class AppointmentsEntities2 : DbContext
     {
-        public AppointmentsEntities()
-            : base("name=AppointmentsEntities")
+        public AppointmentsEntities2()
+            : base("name=AppointmentsEntities2")
         {
         }
     
