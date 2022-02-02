@@ -16,7 +16,7 @@ namespace DoctorAppointments.Controllers
 
 
         [HttpGet]
-        public ActionResult Login(string username, string password, string role)
+        public ActionResult Login(string username, string password, string role = "Admin")
         {
             if (username == null || password == null || role == null)
             {
@@ -39,7 +39,7 @@ namespace DoctorAppointments.Controllers
             {
                 Admin user = db.Admins.Where(x => x.username == username).FirstOrDefault();
                 if (user == null) return HttpNotFound();
-                return View(user);
+                return View("HomePage");
             }
         }
 
