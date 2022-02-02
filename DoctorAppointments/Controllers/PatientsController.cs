@@ -61,12 +61,23 @@ namespace DoctorAppointments.Controllers
         {
             DateTime currentDate = DateTime.Now;
             List<Appointment> previousAppointments = db.Appointments
-                                                        .Where(x => x.appointmentDate <= currentDate)
+                                                        .Where(x => x.appointmentDate <= currentDate.Date)
                                                         .Where(w => w.patientAMKA == patientAMKA)
                                                         .ToList();
             return View(previousAppointments);
 
         }
 
+        [HttpGet]
+        public ActionResult ShowAvailableAppointments(long doctorAMKA)
+        {
+            DateTime currentDate = DateTime.Now;
+            List<Appointment> futureAppointments = db.Appointments
+                                                        .Where(x => x.appointmentDate >= currentDate.Date)
+                                                        .Where(w => w.doctorAMKA == doctorAMKA)
+                                                        .Where(q => q.isAvailable == true)
+                                                        .ToList();
+            return View(futureAppointments);
+        }
     }
 }

@@ -46,20 +46,19 @@ namespace DoctorAppointments.Controllers
             return View(currentAppointments);
         }
 
+        [HttpGet]
+        public ActionResult ShowAppointmentsPerWeek(long doctorAMKA)
+        {
+            DateTime currentDate = DateTime.Now;
+            DateTime currentWeek = currentDate.AddDays(7).Date;
+            List<Appointment> currentAppointments = db.Appointments.Where(x => x.doctorAMKA == doctorAMKA)
+                                                    .Where(d => d.appointmentDate <= currentWeek)
+                                                    .Where(w => w.appointmentDate >= currentDate.Date)
+                                                    .Where(y => y.isAvailable == false)
+                                                    .ToList();
+            return View(currentAppointments);
+        }
 
-        //Unfinished
-        //[HttpGet]
-        //public ActionResult ShowAppointmentsPerWeek(long doctorAMKA)
-        //{
-        //    DateTime currentDate = DateTime.Now;
 
-        //    List<Appointment> currentAppointments = db.Appointments.Where(x => x.doctorAMKA == doctorAMKA)
-        //                                            .Where(w => w.appointmentDate == currentDate.Date)
-        //                                            .Where(y => y.isAvailable == false)
-        //                                            .ToList();
-        //    return View(currentAppointments);
-        //}
-
-        
     }
 }
