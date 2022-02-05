@@ -1,0 +1,33 @@
+﻿@model DoctorAppointments.Models.Admin
+@{
+    ViewBag.Title = "UserRegistration";
+}
+
+<h2>User Registration</h2>
+
+<div class="container">
+    <h2>Select which one of the following users would you like to register</h2>
+    <center>
+        <button type="button" class="btn btn-primary disabled" onclick="showlink('/Doctors1/Create');return false;">Doctor</button>
+        <button type="button" class="btn btn-primary disabled" onclick="showlink('/Patients/Create');return false;">Patient</button>
+        <br>
+        <br>
+        <embed id="link" src="/Doctors1/Create" style="width:500px; height: 750px;">
+
+    </center>
+    
+</div>
+
+
+<script>
+    function showlink(which) {
+        var source = which;
+        var em = document.getElementById("link");
+        var clone = em.cloneNode(true);
+        clone.setAttribute('src', source);
+        em.parentNode.replaceChild(clone, em)
+
+    }
+
+</script>
+

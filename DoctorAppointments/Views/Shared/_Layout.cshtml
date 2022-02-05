@@ -9,8 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top ">
-        <!-- -->
-        <div class="container-fluid">
+        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -26,7 +25,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/">Patients </span></a>
                          
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Register", "", "")</li>
+                            <li>@Html.ActionLink("Register", "Create", "Patients")</li>
                             <li>@Html.ActionLink("Search for appointment", "", "")</li>
                             <li>@Html.ActionLink("Close an appointment", "", "")</li>
                             <li>@Html.ActionLink("Delete appointment", "", "")</li>
@@ -35,6 +34,7 @@
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/">Doctors</a>
+
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Select avaliable dates", "", "")</li>
                             <li>@Html.ActionLink("My appointments", "", "")</li>
@@ -44,7 +44,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/">Admins</a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Register users", "", "")</li>
+                            <li>@Html.ActionLink("Register users", "UserRegistration", "Admins")</li>
                         </ul>
                     </li>
 
@@ -67,7 +67,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <!-- <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>-->
+             <p>&copy; @DateTime.Now.Year - My MVC Application</p>-->
         </footer>
     </div>
 
