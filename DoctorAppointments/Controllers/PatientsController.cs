@@ -65,7 +65,8 @@ namespace DoctorAppointments.Controllers
                                                         .Where(x => x.appointmentDate <= currentDate)
                                                         .Where(w => w.patientAMKA == patientAMKA)
                                                         .ToList();
-            return View();
+            Patient patient = db.Patients.Find(patientAMKA);
+            return View(patient);
 
         }
         // GET: Patients/Create

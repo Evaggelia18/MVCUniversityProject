@@ -48,9 +48,19 @@ namespace DoctorAppointments.Controllers
         }
 
         // GET: Doctors/Create
-        public ActionResult AppointmentSchedule()
+        public ActionResult AppointmentSchedule(long doctorAMKA = 11268710672)
         {
-            return View();
+            if (doctorAMKA == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Doctor doctor = db.Doctors.Find(doctorAMKA);
+            if (doctor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(doctor);
+            
         }
         //Unfinished
         //[HttpGet]

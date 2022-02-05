@@ -14,7 +14,25 @@
         <th>Patient Amka</th>
         <th>State</th>
     </tr>
+    @foreach (var item in Model.Appointments)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.appointmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startAppTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.name)
+                @Html.DisplayFor(modelItem => item.Doctor.surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.speciality)
+            </td>
+            <td></td>
+        </tr>
+    }
 
 
-
-</table>
+    </table>

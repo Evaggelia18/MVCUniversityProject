@@ -5,6 +5,7 @@
 
 <h2>My appointment history</h2>
 
+
 <table class="table" style="border-collapse: collapse; width: 100%; border: 1px solid #ddd;">
     <tr>
         <th>Date</th>
@@ -13,7 +14,25 @@
         <th>Specialty</th>
         <th>State</th>
     </tr>
-
+    @foreach (var item in Model.Appointments)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.appointmentDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.startAppTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Doctor.name)
+        @Html.DisplayFor(modelItem => item.Doctor.surname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Doctor.speciality)
+    </td>
+    <td></td>
+</tr>
+    }
 
 
 </table>
