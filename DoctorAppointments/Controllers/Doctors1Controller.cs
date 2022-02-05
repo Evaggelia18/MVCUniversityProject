@@ -59,7 +59,29 @@ namespace DoctorAppointments.Controllers
         //                                            .ToList();
         //    return View(currentAppointments);
         //}
+        // GET: Doctors/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        
+        // POST: Doctors/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "doctorAMKA,doctorID,password,name,surname,username,speciality")] Doctor doctors)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Doctors.Add(doctors);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(doctors);
+        }
+
+
     }
 }

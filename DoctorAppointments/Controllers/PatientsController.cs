@@ -39,7 +39,8 @@ namespace DoctorAppointments.Controllers
             {
                 Admin user = db.Admins.Where(x => x.username == username).FirstOrDefault();
                 if (user == null) return HttpNotFound();
-                return View("HomePage");
+                //return View("/Admins/UserRegistration",Admin);
+                return RedirectToAction("UserRegistration", "Admins");
             }
         }
 
@@ -66,6 +67,28 @@ namespace DoctorAppointments.Controllers
                                                         .ToList();
             return View(previousAppointments);
 
+        }
+        // GET: Patients/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Patients/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "patientAMKA,patientID,password,name,surname,username")] Patient patients)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Patients.Add(patients);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(patients);
         }
 
     }
