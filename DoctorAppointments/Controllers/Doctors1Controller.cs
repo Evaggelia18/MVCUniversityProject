@@ -44,9 +44,14 @@ namespace DoctorAppointments.Controllers
                                                     .Where( y => y.isAvailable == false)
                                                     .ToList();
             return View(currentAppointments);
+            
         }
 
-
+        // GET: Doctors/Create
+        public ActionResult AppointmentSchedule()
+        {
+            return View();
+        }
         //Unfinished
         //[HttpGet]
         //public ActionResult ShowAppointmentsPerWeek(long doctorAMKA)

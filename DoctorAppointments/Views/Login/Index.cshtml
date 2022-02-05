@@ -1,19 +1,22 @@
 ﻿@model DoctorAppointments.Models.Patient
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Log in Form";
+    //ViewBag.Title = "Index";
     Layout = "~/Views/Shared/ApplicationLayout.cshtml";
 }
 
-@Styles.Render("~/Content/signin.css");
+@*@Styles.Render("~/Content/signin.css");*@
+
+@Styles.Render("~/Content/loginusers.css");
 <div class="container">
 
-    @using (Html.BeginForm("Login", "Patients", FormMethod.Get))
-            {
-                <span>Username: </span> @Html.TextBoxFor(x => x.username)
-                <span>Password: </span> @Html.TextBoxFor(x => x.password)
-                <input id="Login" type="submit" value="Login" />
-            }
+    @*@using (Html.BeginForm("Login", "Patients", FormMethod.Get))
+        {
+            <span>Username: </span> @Html.TextBoxFor(x => x.username)
+            <span>Password: </span> @Html.TextBoxFor(x => x.password)
+            <input id="Login" type="submit" value="Login" />
+        }*@
 
     @*    <form class="form-signin" action="">
             <h2 class="form-signin-heading">Please sign in</h2>
@@ -25,6 +28,48 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="location.href'@Url.Action("Login", "Patient")'">Log in</button>
         </form>*@
 
+
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title login"> Login Form </div>
+        </div>
+
+        <div class="form-container">
+
+
+            <input type="radio" id="patient" value="patient" name="user" />
+            <label for="patient">
+                <div class="choices">Patient</div>
+            </label>
+
+            <input type="radio" id="doctor" value="doctor" name="user" />
+            <label for="doctor">
+                <div class="choices">Doctor</div>
+            </label>
+
+            <input type="radio" id="admin" value="admin" name="user" />
+            <label for="admin">
+                <div class="choices">Admin</div>
+            </label>
+
+
+
+            <div class="form-inner">
+                <form action="/Patients/Login" class="loginp" method="get">
+                    <div class="field">
+                        <input type="text" placeholder="Username" id="username" name="username">
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Password" id="password" name="password" />
+                    </div>
+                    <div class="field">
+                        <input id="Login" type="submit" value="Login" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
 
 </div>
 

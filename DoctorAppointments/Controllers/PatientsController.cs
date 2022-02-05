@@ -58,14 +58,14 @@ namespace DoctorAppointments.Controllers
         }
 
         [HttpGet]
-        public ActionResult PreviousAppointments(long patientAMKA)
+        public ActionResult PreviousAppointments(long patientAMKA= 12345678987)
         {
             DateTime currentDate = DateTime.Now;
             List<Appointment> previousAppointments = db.Appointments
                                                         .Where(x => x.appointmentDate <= currentDate)
                                                         .Where(w => w.patientAMKA == patientAMKA)
                                                         .ToList();
-            return View(previousAppointments);
+            return View();
 
         }
         // GET: Patients/Create

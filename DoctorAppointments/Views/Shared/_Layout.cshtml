@@ -29,7 +29,7 @@
                             <li>@Html.ActionLink("Search for appointment", "", "")</li>
                             <li>@Html.ActionLink("Close an appointment", "", "")</li>
                             <li>@Html.ActionLink("Delete appointment", "", "")</li>
-                            <li>@Html.ActionLink("My appointment history", "", "")</li>
+                            <li>@Html.ActionLink("My appointment history", "PreviousAppointments", "Patients")</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -37,7 +37,7 @@
 
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Select avaliable dates", "", "")</li>
-                            <li>@Html.ActionLink("My appointments", "", "")</li>
+                            <li>@Html.ActionLink("My appointments", "AppointmentSchedule", "Doctors1")</li>
                             <li>@Html.ActionLink("Delete appointment", "", "")</li>
                         </ul>
                     </li>
