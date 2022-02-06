@@ -64,7 +64,47 @@ namespace DoctorAppointments.Controllers
              */
             return RedirectToAction("SearchForDate", "Patients",resultAppointments);
         }
-       
+
+        [HttpGet]
+        public ActionResult PrevAppointments(long patientAMKA = 12345678987)
+        {
+            DateTime currentDate = DateTime.Now;
+            List<Appointment> previousAppointments = db.Appointments
+                                                        .Where(x => x.appointmentDate <= currentDate)
+                                                        .Where(w => w.patientAMKA == patientAMKA)
+                                                        .ToList();
+            //Patient patient = db.Patients.Find(patientAMKA);
+            ViewBag.previousAppointments = previousAppointments;
+            return View(previousAppointments);
+
+        }
+
+        [HttpGet]
+        public ActionResult CancelAppointments(long patientAMKA = 12345678987)
+        {
+            DateTime currentDate = DateTime.Now;
+            List<Appointment> cancelAppointments = db.Appointments
+                                                        .Where(x => x.appointmentDate >= currentDate)
+                                                        .Where(w => w.patientAMKA == patientAMKA)
+                                                        .ToList();
+            //Patient patient = db.Patients.Find(patientAMKA);
+            ViewBag.cancelAppointments = cancelAppointments;
+            return View(cancelAppointments);
+
+        }
+        [HttpGet]
+        public ActionResult CancelAppointmentsDoc(long doctorAMKA = 11268710672)
+        {
+            DateTime currentDate = DateTime.Now;
+            List<Appointment> cancelAppointmentsdoc = db.Appointments
+                                                        .Where(x => x.appointmentDate >= currentDate)
+                                                        .Where(w => w.doctorAMKA == doctorAMKA)
+                                                        .ToList();
+            //Patient patient = db.Patients.Find(patientAMKA);
+            ViewBag.cancelAppointmentsdoc = cancelAppointmentsdoc;
+            return View(cancelAppointmentsdoc);
+
+        }
     }
 
 }

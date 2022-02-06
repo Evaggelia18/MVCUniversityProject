@@ -1,0 +1,52 @@
+﻿@model List<DoctorAppointments.Models.Appointment>
+@{
+    ViewBag.Title = "CancelAppointments";
+}
+
+<h2>Cancel Appointments</h2>
+
+
+<table class="table" style="border-collapse: collapse; width: 100%; border: 1px solid #ddd;">
+    <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Doctor</th>
+        <th>Specialty</th>
+    </tr>
+    @foreach (var item in ViewBag.cancelAppointments)
+    {
+        <tr class='clickable-row' data-href='url://'>
+            <td>
+                @item.appointmentDate
+            </td>
+            <td>
+                @item.startAppTime
+            </td>
+            <td>
+                @item.Doctor.name
+                @item.Doctor.surname
+            </td>
+            <td>
+                @item.Doctor.speciality
+            </td>
+
+        </tr>
+    }
+
+
+</table>
+
+<form>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Cancel</button>
+    </div>
+</form>
+
+<!--
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+https://stackoverflow.com/questions/17147821/how-to-make-a-whole-row-in-a-table-clickable-as-a-link
+-->
