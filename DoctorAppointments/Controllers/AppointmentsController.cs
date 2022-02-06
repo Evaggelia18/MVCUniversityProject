@@ -128,6 +128,10 @@ namespace DoctorAppointments.Controllers
             return View(cancelAppointmentsdoc);
 
         }
+        public ActionResult RequestAmka() {
+            return View();
+        
+        }
 
     }
 

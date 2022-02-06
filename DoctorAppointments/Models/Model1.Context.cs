@@ -16,7 +16,7 @@ namespace DoctorAppointments.Models
     public partial class AppointmentsEntities2 : DbContext
     {
         public AppointmentsEntities2()
-            : base("name=AppointmentsEntities1")
+            : base("name=AppointmentsEntities3")
         {
         }
     

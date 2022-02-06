@@ -5,6 +5,8 @@
 
 <h2>Cancel Appointments</h2>
 
+@Styles.Render("~/Content/cancel.css");
+@Scripts.Render("~/bundles/jquery")
 
 <table class="table" style="border-collapse: collapse; width: 100%; border: 1px solid #ddd;">
     <tr>
@@ -50,3 +52,17 @@ jQuery(document).ready(function($) {
 });
 https://stackoverflow.com/questions/17147821/how-to-make-a-whole-row-in-a-table-clickable-as-a-link
 -->
+<script>
+    $(document).ready(function () {
+        $('tr').click(function () {
+            //Check to see if background color is set or if it's set to white.
+            if (this.style.background == "" || this.style.background == "white") {
+                $(this).css('background', '#e6f0ff');
+            }
+            else {
+                $(this).css('background', 'white');
+            }
+        });
+    });
+
+</script>
