@@ -28,8 +28,8 @@
                             <li>@Html.ActionLink("Register", "Create", "Patients")</li>
                             <li>@Html.ActionLink("Search for appointment", "SearchForDate", "Patients")</li>
                             <li>@Html.ActionLink("Close an appointment", "CloseAppointment", "Patients")</li>
-                            <li>@Html.ActionLink("Delete appointment", "CancelAppointments", "Patients")</li>
-                            <li>@Html.ActionLink("My appointment history", "PreviousAppointments", "Patients")</li>
+                            <li>@Html.ActionLink("Delete appointment", "CancelAppointments", "Appointments")</li>
+                            <li>@Html.ActionLink("My appointment history", "PrevAppointments", "Appointments")</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -38,7 +38,7 @@
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Select available dates", "Welcome", "Doctors1")</li>
                             <li>@Html.ActionLink("My appointments", "AppointmentSchedule", "Doctors1")</li>
-                            <li>@Html.ActionLink("Delete appointment", "", "")</li>
+                            <li>@Html.ActionLink("Delete appointment", "CancelAppointmentsDoc", "Appointments")</li>
                         </ul>
                     </li>
                     <li class="dropdown">

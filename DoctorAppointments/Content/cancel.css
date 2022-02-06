@@ -1,0 +1,17 @@
+﻿body {
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.clickable-row:hover {
+    cursor: pointer;
+    background: #e6f0ff;
+}
+
+.clickable-row {
+    background: white;
+}

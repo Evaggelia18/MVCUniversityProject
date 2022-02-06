@@ -174,6 +174,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cancel.css" />
     <Content Include="Content\loginusers.css" />
     <Content Include="Content\search.css" />
     <Content Include="Content\signin.css" />
@@ -255,6 +256,9 @@
     <Content Include="Views\Doctors1\Availability.cshtml" />
     <Content Include="Views\Doctors1\ShowAppointmentsPerDay.cshtml" />
     <Content Include="Views\Doctors1\ShowAppointmentsPerWeek.cshtml" />
+    <Content Include="Views\Appointments\CancelAppointments.cshtml" />
+    <Content Include="Views\Appointments\CancelAppointmentsDoc.cshtml" />
+    <Content Include="Views\Appointments\PrevAppointments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,63 @@
+﻿@model List<DoctorAppointments.Models.Appointment>
+@{
+    ViewBag.Title = "CancelAppointmentsDoc";
+}
+
+<h2>Cancel Appointments</h2>
+
+@Styles.Render("~/Content/cancel.css");
+@Scripts.Render("~/bundles/jquery")
+
+<table class="table">
+    <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Appointmant ID</th>
+    </tr>
+    @foreach (var item in ViewBag.cancelAppointmentsdoc)
+    {
+        <tr class='clickable-row' onclick="myFunction(@item.appointmentID)">
+            <td>
+                @item.appointmentDate
+            </td>
+            <td>
+                @item.startAppTime
+            </td>
+            <td>
+                @item.appointmentID
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<form>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Cancel</button>
+    </div>
+</form>
+
+<!--
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+https://stackoverflow.com/questions/17147821/how-to-make-a-whole-row-in-a-table-clickable-as-a-link
+-->
+
+<script>
+    $(document).ready(function () {
+        $('tr').click(function () {
+            //Check to see if background color is set or if it's set to white.
+            if (this.style.background == "" || this.style.background == "white") {
+                $(this).css('background', '#e6f0ff');
+            }
+            else {
+                $(this).css('background', 'white');
+            }
+        });
+    });
+
+</script>
