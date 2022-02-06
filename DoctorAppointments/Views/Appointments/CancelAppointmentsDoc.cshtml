@@ -1,6 +1,6 @@
 ﻿@model List<DoctorAppointments.Models.Appointment>
 @{
-    ViewBag.Title = "CancelAppointmentsDoc";
+    ViewBag.Title = "Cancel Appointments";
 }
 
 <h2>Cancel Appointments</h2>
@@ -9,12 +9,19 @@
 
 <table class="table">
     <tr>
+        <th>Appointment ID</th>
         <th>Date</th>
         <th>Time</th>
-        <th>Appointmant ID</th>
     </tr>
     @foreach (var item in ViewBag.cancelAppointmentsdoc)
     {
+        <tr>
+            <td>@item.appointmentID</td>
+            <td>@item.appointmentDate</td>
+            <td>@item.startAppTime</td>
+            <td>@Html.ActionLink("Cancel Appointment", "Delete", "Appointments", new {item.appointmentID}, htmlAttributes: null)</td>
+        </tr>
+        @*</tr>
         <tr class='clickable-row' onclick="DoAction(@item.appointmentID)">
             <td>
                 @item.appointmentDate
@@ -26,16 +33,16 @@
                 @item.appointmentID
             </td>
 
-        </tr>
+        </tr>*@
     }
 
 </table>
 
-<form>
+@*<form>
     <div class="form-group">
         <button type="submit" class="btn btn-success">Cancel</button>
     </div>
-</form>
+</form>*@
 
 <!--
 jQuery(document).ready(function($) {

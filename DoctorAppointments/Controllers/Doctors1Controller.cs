@@ -122,5 +122,10 @@ namespace DoctorAppointments.Controllers
             return View();
         }
 
+        public ActionResult RequestAmka3()
+        {
+            return View();
+        }
+
     }
 }

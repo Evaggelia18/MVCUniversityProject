@@ -25,6 +25,12 @@ namespace DoctorAppointments
                 defaults: new { controller = "Patients", action = "Login" }
                 );
 
+            routes.MapRoute(
+                name: "DeleteApp",
+                url: "Appointments/Delete/{id}",
+                defaults: new { controller = "Appointments", action = "Delete", id = UrlParameter.Optional }
+                );
+
         }
     }
 }

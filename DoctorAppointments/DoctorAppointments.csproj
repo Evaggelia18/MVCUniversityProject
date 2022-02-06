@@ -263,6 +263,7 @@
     <Content Include="Views\Appointments\RequestAmka.cshtml" />
     <Content Include="Views\Doctors1\RequestAmka1.cshtml" />
     <Content Include="Views\Doctors1\RequestAmka2.cshtml" />
+    <Content Include="Views\Doctors1\RequestAmka3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

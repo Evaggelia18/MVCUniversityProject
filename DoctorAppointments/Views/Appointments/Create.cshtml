@@ -1,10 +1,10 @@
 ﻿@model DoctorAppointments.Models.Appointment
 
 @{
-    ViewBag.Title = "Create Appointment";
+    ViewBag.Title = "Create";
 }
 
-<h2>Create a free slot</h2>
+<h2>Create</h2>
 
 
 @using (Html.BeginForm())
@@ -38,6 +38,7 @@
                 @Html.ValidationMessageFor(model => model.endAppTime, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.doctorAMKA, "doctorAMKA", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -69,7 +70,6 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-
     </div>
 }
 

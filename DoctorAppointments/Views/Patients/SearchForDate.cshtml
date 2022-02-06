@@ -5,10 +5,24 @@
 @Styles.Render("~/Content/search.css");
 
 <h2>Search for avaliable appointment</h2>
+<br /><br /><br /><br /><br /><br />
+@using (Html.BeginForm("SearchForAppointment", "Appointments", FormMethod.Get))
+{
+    @Html.Label("Date From")
+    @Html.TextBox("DateFrom", DateTime.Now.ToShortDateString())<br />
+    @Html.Label("Date Untill")
+    @Html.TextBox(DateTime.Now.ToShortDateString())<br />
+    @Html.Label("Speciality", "Speciality")
+    @Html.DropDownList("Specialities", new List<SelectListItem>
+{
+    new SelectListItem { Text = "Pathology", Value = "Pathology", Selected = true},
+    new SelectListItem { Text = "Ophthalmology", Value = "Ophthalmology"},
+    new SelectListItem { Text = "Orthopaedic", Value = "Orthopaedic"}
+} )<br />
+    <input type="submit" value="Search Date" />
+}
 
-
-
-<form action="/Appointments/SearchForAppointment" method="post">
+@*<form action="/Appointments/SearchForAppointment" method="post">
     <input type="checkbox" checked="checked" id="ddate" value="ddate" class="choice1"> <label class="choices" for="ddate">
         Date Between
     </label>
@@ -44,7 +58,7 @@
     <div class="form-group">
         <button type="submit" class="btn btn-success">Search</button>
     </div>
-</form>
+</form>*@
 
 
 <table class="table">

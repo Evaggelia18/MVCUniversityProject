@@ -50,7 +50,7 @@ namespace DoctorAppointments.Controllers
         //}
 
         [HttpPost]
-        public ActionResult SearchForAppointment(DateTime appointmentDate, string specialty = "")
+        public ActionResult SearchForAppointment(DateTime appointmentDate, string speciality)
         {
             List<Appointment> resultAppointments = db.Appointments
                                                         .Where(x => x.appointmentDate <= appointmentDate).ToList();
@@ -118,8 +118,9 @@ namespace DoctorAppointments.Controllers
         }
 
         [HttpGet]
-        public ActionResult CancelAppointmentsDoc(long doctorAMKA = 11268710672)
+        public ActionResult CancelAppointmentsDoc(string AMKA)
         {
+            long doctorAMKA = long.Parse(AMKA);
             DateTime currentDate = DateTime.Now;
             List<Appointment> cancelAppointmentsdoc = db.Appointments
                                                         .Where(x => x.appointmentDate >= currentDate)
