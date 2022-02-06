@@ -64,7 +64,31 @@ namespace DoctorAppointments.Controllers
              */
             return RedirectToAction("SearchForDate", "Patients",resultAppointments);
         }
-       
+
+        public ActionResult Create(Doctor doctor)
+        {
+            ViewBag.docAMKA = doctor.doctorAMKA.ToString();
+            ViewBag.doctorAMKA = new SelectList(db.Doctors, "doctorAMKA", "password");
+            ViewBag.patientAMKA = new SelectList(db.Patients, "patientAMKA", "password");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "appointmentID,appointmentDate,startAppTime,endAppTime,doctorAMKA,patientAMKA,isAvailable")] Appointment appointment, Doctor doctor)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Appointments.Add(appointment);
+                db.SaveChanges();
+                return RedirectToAction("Create", "Appointments");
+            }
+            ViewBag.doctorAMKA = new SelectList(db.Doctors, "doctorAMKA", "password", appointment.doctorAMKA);
+            ViewBag.patientAMKA = new SelectList(db.Patients, "patientAMKA", "password", appointment.patientAMKA);
+            return View(appointment);
+        }
+
+
     }
 
 }

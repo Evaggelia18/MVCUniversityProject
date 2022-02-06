@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DoctorAppointments</RootNamespace>
     <AssemblyName>DoctorAppointments</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -64,9 +64,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\Appointments1Controller.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\Doctors1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -249,9 +250,13 @@
     <Content Include="Views\Patients\SearchForDate.cshtml" />
     <Content Include="Views\Patients\CancelAppointments.cshtml" />
     <Content Include="Views\Patients\CloseAppointment.cshtml" />
+    <Content Include="Views\Doctors1\Welcome.cshtml" />
+    <Content Include="Views\Patients\Welcome.cshtml" />
+    <Content Include="Views\Doctors1\Availability.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Appointments1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

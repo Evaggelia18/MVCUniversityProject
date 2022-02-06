@@ -1,0 +1,13 @@
+﻿@model DoctorAppointments.Models.Doctor
+
+@{
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Welcome @ViewBag.Doctor.username</h2>
+
+
+
+@Html.ActionLink("Register available dates.", "Create", "Appointments")
+

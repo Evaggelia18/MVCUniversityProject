@@ -102,6 +102,13 @@ namespace DoctorAppointments.Controllers
             return View(doctors);
         }
 
+        public ActionResult Welcome(Doctor user)
+        {
+            ViewBag.Doctor = user;
+            return View();
+        }
+
+        
 
     }
 }

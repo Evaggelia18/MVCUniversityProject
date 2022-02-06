@@ -21,7 +21,7 @@ namespace DoctorAppointments
 
             routes.MapRoute(
                 name: "Login",
-                url: "Patients/Login/{username}/{password}",
+                url: "Patients/Login/{username}/{password}/{role}",
                 defaults : new { controller = "Patients", action = "Login"}
                 );
 

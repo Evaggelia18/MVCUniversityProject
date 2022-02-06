@@ -36,7 +36,6 @@
 
         <div class="form-container">
 
-
             <input type="radio" id="patient" value="patient" name="user" />
             <label for="patient">
                 <div class="choices">Patient</div>
@@ -56,6 +55,14 @@
 
             <div class="form-inner">
                 <form action="/Patients/Login" class="loginp" method="get">
+
+                    @Html.DropDownList("role", new List<SelectListItem>
+               {
+                   new SelectListItem {Text = "Admin", Value = "Admin", Selected = true},
+                   new SelectListItem {Text = "Doctor", Value = "Doctor"},
+                   new SelectListItem {Text = "Patient", Value = "Patient"}
+               }, "Select Role")
+
                     <div class="field">
                         <input type="text" placeholder="Username" id="username" name="username">
                     </div>

@@ -16,8 +16,9 @@ namespace DoctorAppointments.Controllers
 
 
         [HttpGet]
-        public ActionResult Login(string username, string password, string role = "Admin")
+        public ActionResult Login(string username, string password, string role)
         {
+
             if (username == null || password == null || role == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -27,13 +28,13 @@ namespace DoctorAppointments.Controllers
             {
                 Patient user = db.Patients.Where(x => x.username == username).FirstOrDefault();
                 if (user == null) return HttpNotFound();
-                return View(user);
+                return RedirectToAction("Welcome", "Patients", user);
             }
             else if (role.Contains("Doctor"))
             {
                 Doctor user = db.Doctors.Where(x => x.username == username).FirstOrDefault();
                 if (user == null) return HttpNotFound();
-                return View(user);
+                return RedirectToAction("Welcome", "Doctors1", user);
             }
             else
             {
@@ -117,5 +118,12 @@ namespace DoctorAppointments.Controllers
         {
             return View();
         }
+
+        public ActionResult Welcome(Patient user)
+        {
+            ViewBag.Patient = user;
+            return View();
+        }
+
     }
 }
