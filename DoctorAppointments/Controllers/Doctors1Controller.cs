@@ -75,8 +75,9 @@ namespace DoctorAppointments.Controllers
         //    return View(currentAppointments);
         //}
         // GET: Doctors/Create
-        public ActionResult Create()
+        public ActionResult Create(string text)
         {
+            ViewBag.Message = text;
             return View();
         }
 
@@ -87,11 +88,15 @@ namespace DoctorAppointments.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "doctorAMKA,doctorID,password,name,surname,username,speciality")] Doctor doctors)
         {
+            ViewBag.Message = null;
             if (ModelState.IsValid)
             {
+
+                ViewBag.Message = string.Format("Doctor {0} has been successfully registered!", doctors.username);
                 db.Doctors.Add(doctors);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return RedirectToAction("Create", new { text = ViewBag.Message });
             }
 
             return View(doctors);

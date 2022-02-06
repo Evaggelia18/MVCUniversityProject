@@ -1,0 +1,15 @@
+﻿.remove {
+    display: none;
+}
+
+.sow {
+    display: none;
+}
+
+.choice1:checked ~ .remove {
+    display: block;
+}
+
+.choice2:checked ~ .sow {
+    display: block;
+}

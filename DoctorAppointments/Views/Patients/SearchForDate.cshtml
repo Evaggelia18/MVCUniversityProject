@@ -1,0 +1,77 @@
+﻿@model DoctorAppointments.Models.Patient
+@{
+    ViewBag.Title = "SearchForDate";
+}
+@Styles.Render("~/Content/search.css");
+
+<h2>Search for avaliable appointment</h2>
+
+
+
+<form action="/Appointments/SearchForAppointment" method="post">
+    <input type="checkbox" checked="checked" id="ddate" value="ddate" class="choice1"> <label class="choices" for="ddate">
+        Date Between
+    </label>
+
+    <input type="checkbox" id="sdate" value="sdate" class="choice2"><label class="choices" for="sdate">
+        Single Date
+    </label>
+
+    <div class="form-group remove">
+        <label>From Date</label>
+        <input type="date" class="form-control" id="dateFrom" name="dateFrom" placeholder="">
+    </div>
+    <div class="form-group remove">
+        <label>To Date</label>
+        <input type="date" class="form-control" id="dateTo" name="dateTo" placeholder="">
+    </div>
+
+    <div class="form-group sow">
+        <label>Date</label>
+        <input type="date" class="form-control" id="dateFrom" name="dateFrom" placeholder="">
+    </div>
+
+    <br>
+
+    <label for="specialty">Specialty</label>
+    <select id="specialty" name="specialty">
+        <option value="">Pathologist</option>
+        <option value="">Ophthalmologist</option>
+        <option value="">Orthopedic</option>
+    </select>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Search</button>
+    </div>
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Doctor</th>
+        <th>Doctor AMKA</th>
+    </tr>
+
+  @*  @foreach (var item in Model.Appointments)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.appointmentDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.startAppTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Doctor.name)
+        @Html.DisplayFor(modelItem => item.Doctor.surname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.doctorAMKA)
+    </td>
+</tr>
+    }*@
+
+</table>

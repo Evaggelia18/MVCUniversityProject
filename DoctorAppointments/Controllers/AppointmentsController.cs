@@ -49,6 +49,22 @@ namespace DoctorAppointments.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
+        [HttpPost]
+        public ActionResult SearchForAppointment(DateTime appointmentDate, string specialty="")
+        {
+            List<Appointment> resultAppointments = db.Appointments
+                                                        .Where(x => x.appointmentDate <= appointmentDate).ToList();
+                                                        
+            /*int appointmentID
+             * Appointment appointment = db.Appointments.Find(appointmentID);
+             appointment.isAvailable = false;
+             appointment.patientAMKA = patientAMKA;
+             db.SaveChanges();
+             return new HttpStatusCodeResult(HttpStatusCode.OK);
+             */
+            return RedirectToAction("SearchForDate", "Patients",resultAppointments);
+        }
+       
     }
 
 }

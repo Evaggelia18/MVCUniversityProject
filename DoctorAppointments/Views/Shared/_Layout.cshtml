@@ -22,13 +22,13 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <!--<div class="dropdown-toggle" data-toggle="dropdown">@Html.ActionLink("Patients", "", "")</div>-->
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="/">Patients </span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/">Patients </a>
                          
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Register", "Create", "Patients")</li>
-                            <li>@Html.ActionLink("Search for appointment", "", "")</li>
-                            <li>@Html.ActionLink("Close an appointment", "", "")</li>
-                            <li>@Html.ActionLink("Delete appointment", "", "")</li>
+                            <li>@Html.ActionLink("Search for appointment", "SearchForDate", "Patients")</li>
+                            <li>@Html.ActionLink("Close an appointment", "CloseAppointment", "Patients")</li>
+                            <li>@Html.ActionLink("Delete appointment", "CancelAppointments", "Patients")</li>
                             <li>@Html.ActionLink("My appointment history", "PreviousAppointments", "Patients")</li>
                         </ul>
                     </li>

@@ -92,5 +92,30 @@ namespace DoctorAppointments.Controllers
             return View(patients);
         }
 
+        public ActionResult SearchForDate()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SearchForDate(List<Appointment>  resultAppointments)
+        {
+            return View(resultAppointments);
+        }
+        
+        public ActionResult CancelAppointments(long patientAMKA = 12345678987)
+        {
+            DateTime currentDate = DateTime.Now;
+            List<Appointment> previousAppointments = db.Appointments
+                                                        .Where(x => x.appointmentDate >= currentDate)
+                                                        .Where(w => w.patientAMKA == patientAMKA)
+                                                        .ToList();
+            Patient patient = db.Patients.Find(patientAMKA);
+            return View(patient);
+            
+        }
+        public ActionResult CloseAppointment()
+        {
+            return View();
+        }
     }
 }
