@@ -14,19 +14,7 @@ namespace DoctorAppointments.Controllers
     {
         private AppointmentsEntities2 db = new AppointmentsEntities2();
 
-        [HttpPost]
-        public ActionResult DoctorRegister(Doctor doctor)
-        {
-            if (doctor == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            db.Doctors.Add(doctor);
-            db.SaveChanges();
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-            //return View(appointment)
-        }
-
+        
         [HttpGet]
         public ActionResult FindDoctorsBySpeciality(string speciality)
         {
@@ -48,23 +36,6 @@ namespace DoctorAppointments.Controllers
             
         }
 
-        // GET: Doctors/Create
-        public ActionResult AppointmentSchedule(long doctorAMKA = 11268710672)
-        {
-            if (doctorAMKA == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Doctor doctor = db.Doctors.Find(doctorAMKA);
-            if (doctor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(doctor);
-            
-        }
-
-        //[HttpGet]
         public ActionResult ShowAppointmentsPerWeek(string AMKA)
         {
             long doctorAMKA = long.Parse(AMKA);
@@ -85,9 +56,6 @@ namespace DoctorAppointments.Controllers
             return View();
         }
 
-        // POST: Doctors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "doctorAMKA,doctorID,password,name,surname,username,speciality")] Doctor doctors)
@@ -104,12 +72,6 @@ namespace DoctorAppointments.Controllers
             }
 
             return View(doctors);
-        }
-
-        public ActionResult Welcome(Doctor user)
-        {
-            ViewBag.Doctor = user;
-            return View();
         }
 
         public ActionResult RequestAmka1()

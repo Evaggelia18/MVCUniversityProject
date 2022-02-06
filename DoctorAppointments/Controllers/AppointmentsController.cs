@@ -30,26 +30,6 @@ namespace DoctorAppointments.Controllers
         }
 
         [HttpPost]
-        public ActionResult MakeAnAppointment(int appointmentID, long patientAMKA)
-        {
-            Appointment appointment = db.Appointments.Find(appointmentID);
-            appointment.isAvailable = false;
-            appointment.patientAMKA = patientAMKA;
-            db.SaveChanges();
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
-
-        //[HttpPost]
-        //public ActionResult CancelAppointment(Appointment appointment)
-        //{
-        //    Appointment app = db.Appointments.Find(appointment.appointmentID);
-        //    app.isAvailable = true;
-        //    app.patientAMKA = null;
-        //    db.SaveChanges();
-        //    return new HttpStatusCodeResult(HttpStatusCode.OK);
-        //}
-
-        [HttpPost]
         public ActionResult SearchForAppointment(DateTime appointmentDate, string speciality)
         {
             List<Appointment> resultAppointments = db.Appointments
@@ -78,7 +58,6 @@ namespace DoctorAppointments.Controllers
         {
             if (ModelState.IsValid)
             {
-                //appointment.isAvailable = true;
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
                 return RedirectToAction("Create", "Appointments");
@@ -97,7 +76,6 @@ namespace DoctorAppointments.Controllers
                                                         .Where(x => x.appointmentDate <= currentDate)
                                                         .Where(w => w.patientAMKA == patientAMKA)
                                                         .ToList();
-            //Patient patient = db.Patients.Find(patientAMKA);
             ViewBag.previousAppointments = previousAppointments;
             return View(previousAppointments);
 
@@ -111,7 +89,6 @@ namespace DoctorAppointments.Controllers
                                                         .Where(x => x.appointmentDate >= currentDate)
                                                         .Where(w => w.patientAMKA == patientAMKA)
                                                         .ToList();
-            //Patient patient = db.Patients.Find(patientAMKA);
             ViewBag.cancelAppointments = cancelAppointments;
             return View(cancelAppointments);
 
@@ -126,7 +103,6 @@ namespace DoctorAppointments.Controllers
                                                         .Where(x => x.appointmentDate >= currentDate)
                                                         .Where(w => w.doctorAMKA == doctorAMKA)
                                                         .ToList();
-            //Patient patient = db.Patients.Find(patientAMKA);
             ViewBag.cancelAppointmentsdoc = cancelAppointmentsdoc;
             return View(cancelAppointmentsdoc);
 

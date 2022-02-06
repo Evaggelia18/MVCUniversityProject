@@ -45,41 +45,13 @@ namespace DoctorAppointments.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult PatientRegister(Patient patient)
-        {
-            if (patient == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            db.Patients.Add(patient);
-            db.SaveChanges();
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-            //return View(patient)
-        }
-
-        [HttpGet]
-        public ActionResult PreviousAppointments(long patientAMKA= 12345678987)
-        {
-            DateTime currentDate = DateTime.Now;
-            List<Appointment> previousAppointments = db.Appointments
-                                                        .Where(x => x.appointmentDate <= currentDate)
-                                                        .Where(w => w.patientAMKA == patientAMKA)
-                                                        .ToList();
-            //Patient patient = db.Patients.Find(patientAMKA);
-            return View(previousAppointments);
-
-        }
-        // GET: Patients/Create
+       
         public ActionResult Create(string text)
         {
             ViewBag.Message = text;
             return View();
         }
 
-        // POST: Patients/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "patientAMKA,patientID,password,name,surname,username")] Patient patients)
@@ -100,6 +72,7 @@ namespace DoctorAppointments.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult SearchForDate(List<Appointment>  resultAppointments)
         {
@@ -122,11 +95,6 @@ namespace DoctorAppointments.Controllers
             return View();
         }
 
-        public ActionResult Welcome(Patient user)
-        {
-            ViewBag.Patient = user;
-            return View();
-        }
 
     }
 }
