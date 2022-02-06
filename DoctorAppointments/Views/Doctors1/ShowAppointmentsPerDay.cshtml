@@ -1,0 +1,30 @@
+﻿@model List <DoctorAppointments.Models.Appointment>
+
+@{
+    ViewBag.Title = "ShowAppointmentsPerDay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowAppointmentsPerDay</h2>
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.LabelFor(modelItem => item.appointmentDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.appointmentDate)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(modelItem => item.startAppTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.startAppTime)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(modelItem => item.endAppTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.endAppTime)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(modelItem => item.patientAMKA)</td>
+            <td>@Html.DisplayFor(modelItem => item.patientAMKA)</td>
+        </tr>
+    }
+</table>

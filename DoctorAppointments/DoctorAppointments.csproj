@@ -253,6 +253,8 @@
     <Content Include="Views\Doctors1\Welcome.cshtml" />
     <Content Include="Views\Patients\Welcome.cshtml" />
     <Content Include="Views\Doctors1\Availability.cshtml" />
+    <Content Include="Views\Doctors1\ShowAppointmentsPerDay.cshtml" />
+    <Content Include="Views\Doctors1\ShowAppointmentsPerWeek.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

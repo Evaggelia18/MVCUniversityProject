@@ -65,9 +65,8 @@ namespace DoctorAppointments.Controllers
             return RedirectToAction("SearchForDate", "Patients",resultAppointments);
         }
 
-        public ActionResult Create(Doctor doctor)
+        public ActionResult Create()
         {
-            ViewBag.docAMKA = doctor.doctorAMKA.ToString();
             ViewBag.doctorAMKA = new SelectList(db.Doctors, "doctorAMKA", "password");
             ViewBag.patientAMKA = new SelectList(db.Patients, "patientAMKA", "password");
             return View();
@@ -75,7 +74,7 @@ namespace DoctorAppointments.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "appointmentID,appointmentDate,startAppTime,endAppTime,doctorAMKA,patientAMKA,isAvailable")] Appointment appointment, Doctor doctor)
+        public ActionResult Create([Bind(Include = "appointmentID,appointmentDate,startAppTime,endAppTime,doctorAMKA,patientAMKA,isAvailable")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
