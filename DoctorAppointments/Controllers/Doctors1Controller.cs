@@ -24,7 +24,6 @@ namespace DoctorAppointments.Controllers
             db.Doctors.Add(doctor);
             db.SaveChanges();
             return new HttpStatusCodeResult(HttpStatusCode.OK);
-            //return View(appointment)
         }
 
         [HttpGet]
@@ -38,7 +37,6 @@ namespace DoctorAppointments.Controllers
         public ActionResult ShowAppointmentsPerDay(long doctorAMKA)
         {
             DateTime currentDate = DateTime.Now;
-            
             List<Appointment> currentAppointments = db.Appointments.Where(x => x.doctorAMKA == doctorAMKA )
                                                     .Where( w => w.appointmentDate == currentDate.Date )
                                                     .Where( y => y.isAvailable == false)

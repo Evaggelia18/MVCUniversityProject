@@ -53,7 +53,6 @@ namespace DoctorAppointments.Controllers
             db.Patients.Add(patient);
             db.SaveChanges();
             return new HttpStatusCodeResult(HttpStatusCode.OK);
-            //return View(patient)
         }
 
         [HttpGet]
@@ -65,7 +64,6 @@ namespace DoctorAppointments.Controllers
                                                         .Where(w => w.patientAMKA == patientAMKA)
                                                         .ToList();
             return View(previousAppointments);
-
         }
 
         [HttpGet]
