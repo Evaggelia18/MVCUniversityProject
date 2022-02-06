@@ -10,11 +10,3 @@
     doctor = ViewBag.Doctor;
 }
 <h2>Welcome @doctor.username</h2>
-
-
-
-@Html.ActionLink("Register available dates.", "Create", "Appointments", routeValues: new { doctor = ViewBag.Doctor }, htmlAttributes: null)
-<br />
-@Html.ActionLink("Show today's schedule.", "ShowAppointmentsPerDay", "Doctors1", new {doctor.doctorAMKA}, htmlAttributes: null)
-<br />
-@Html.ActionLink("Show this week's schedule.", "ShowAppointmentsPerWeek", "Doctors1", new { doctor.doctorAMKA}, htmlAttributes: null)

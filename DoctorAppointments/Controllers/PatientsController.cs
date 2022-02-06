@@ -28,13 +28,13 @@ namespace DoctorAppointments.Controllers
             {
                 Patient user = db.Patients.Where(x => x.username == username).FirstOrDefault();
                 if (user == null) return HttpNotFound();
-                return RedirectToAction("Welcome", "Patients", user);
+                return RedirectToAction("RequestAmka", "Appointments");
             }
             else if (role.Contains("Doctor"))
             {
                 Doctor user = db.Doctors.Where(x => x.username == username).FirstOrDefault();
                 if (user == null) return HttpNotFound();
-                return RedirectToAction("Welcome", "Doctors1", user);
+                return RedirectToAction("RequestAmka1", "Doctors1");
             }
             else
             {
@@ -71,8 +71,9 @@ namespace DoctorAppointments.Controllers
 
         }
         // GET: Patients/Create
-        public ActionResult Create()
+        public ActionResult Create(string text)
         {
+            ViewBag.Message = text;
             return View();
         }
 
@@ -83,11 +84,13 @@ namespace DoctorAppointments.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "patientAMKA,patientID,password,name,surname,username")] Patient patients)
         {
+            ViewBag.Message = null;
             if (ModelState.IsValid)
             {
+                ViewBag.Message = string.Format("Patient {0} has been successfully registered!", patients.username);
                 db.Patients.Add(patients);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", new { text = ViewBag.Message });
             }
 
             return View(patients);

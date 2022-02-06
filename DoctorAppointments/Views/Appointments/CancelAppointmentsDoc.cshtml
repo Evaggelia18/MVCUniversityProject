@@ -4,7 +4,6 @@
 }
 
 <h2>Cancel Appointments</h2>
-
 @Styles.Render("~/Content/cancel.css");
 @Scripts.Render("~/bundles/jquery")
 
@@ -16,7 +15,7 @@
     </tr>
     @foreach (var item in ViewBag.cancelAppointmentsdoc)
     {
-        <tr class='clickable-row' onclick="myFunction(@item.appointmentID)">
+        <tr class='clickable-row' onclick="DoAction(@item.appointmentID)">
             <td>
                 @item.appointmentDate
             </td>
@@ -59,5 +58,17 @@ https://stackoverflow.com/questions/17147821/how-to-make-a-whole-row-in-a-table-
             }
         });
     });
+
+    var PostBackURL = '/Appointments/DeleteConfirmed';
+    ///function DoAction(id) {
+    //$.ajax({
+    //    type: "POST",
+    //    url: PostBackURL,
+    //    data: "id=" + id,
+    //    success: function (msg) {
+    //        alert("Data Saved: " + msg);
+    //    }
+    //});
+    //}/
 
 </script>

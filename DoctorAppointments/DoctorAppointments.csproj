@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DoctorAppointments</RootNamespace>
     <AssemblyName>DoctorAppointments</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -261,6 +261,8 @@
     <Content Include="Views\Appointments\PrevAppointments.cshtml" />
     <Content Include="Views\Patients\RequestAmka1.cshtml" />
     <Content Include="Views\Appointments\RequestAmka.cshtml" />
+    <Content Include="Views\Doctors1\RequestAmka1.cshtml" />
+    <Content Include="Views\Doctors1\RequestAmka2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,11 +1,11 @@
 ﻿@model List <DoctorAppointments.Models.Appointment>
 
 @{
-    ViewBag.Title = "ShowAppointmentsPerDay";
+    ViewBag.Title = "Today's Appointments";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ShowAppointmentsPerDay</h2>
+<h2>Today's Appointments</h2>
 
 <table>
     @foreach (var item in Model)

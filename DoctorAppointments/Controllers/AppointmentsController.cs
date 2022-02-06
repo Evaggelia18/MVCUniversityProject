@@ -78,6 +78,7 @@ namespace DoctorAppointments.Controllers
         {
             if (ModelState.IsValid)
             {
+                //appointment.isAvailable = true;
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
                 return RedirectToAction("Create", "Appointments");
@@ -88,8 +89,9 @@ namespace DoctorAppointments.Controllers
         }
 
         [HttpGet]
-        public ActionResult PrevAppointments(long patientAMKA = 12345678987)
+        public ActionResult PrevAppointments(string AMKA)
         {
+            long patientAMKA = long.Parse(AMKA);
             DateTime currentDate = DateTime.Now;
             List<Appointment> previousAppointments = db.Appointments
                                                         .Where(x => x.appointmentDate <= currentDate)
@@ -131,6 +133,17 @@ namespace DoctorAppointments.Controllers
         public ActionResult RequestAmka() {
             return View();
         
+        }
+
+        // POST: Appointments1/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Appointment appointment = db.Appointments.Find(id);
+            db.Appointments.Remove(appointment);
+            db.SaveChanges();
+            return RedirectToAction("CancelAppointmentsDoc");
         }
 
     }

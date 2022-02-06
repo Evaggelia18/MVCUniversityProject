@@ -1,4 +1,4 @@
-﻿@model DoctorAppointments.Controllers.AppointmentsController
+﻿@model DoctorAppointments.Models.Appointment
 @{
     ViewBag.Title = "RequestAmka";
 }
@@ -6,16 +6,9 @@
 
 <h2>Request Amka</h2>
 
-
-<form action="/Appointments/PreviousAppointments/" method="get">
-    <div class="form-group sow">
-        <label>Patient AMKA</label>
-        <input type="text" class="form-control" id="amka" name="amka" placeholder="Your amka..">
-    </div>
-
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-success">Show appointments</button>
-    </div>
-
-</form>
+@using (Html.BeginForm("PrevAppointments", "Appointments", FormMethod.Get))
+{
+    @Html.Label("AMKA:")
+    @Html.TextBox("AMKA", null, new { @placeholder = "Type your AMKA" });
+    <input type="submit" value="Show Appointments"/>
+}

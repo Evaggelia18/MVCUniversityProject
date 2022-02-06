@@ -35,8 +35,9 @@ namespace DoctorAppointments.Controllers
         }
 
         [HttpGet]
-        public ActionResult ShowAppointmentsPerDay(long doctorAMKA)
+        public ActionResult ShowAppointmentsPerDay(string AMKA)
         {
+            long doctorAMKA = long.Parse(AMKA);
             DateTime currentDate = DateTime.Now;
             
             List<Appointment> currentAppointments = db.Appointments.Where(x => x.doctorAMKA == doctorAMKA )
@@ -64,8 +65,9 @@ namespace DoctorAppointments.Controllers
         }
 
         //[HttpGet]
-        public ActionResult ShowAppointmentsPerWeek(long doctorAMKA)
+        public ActionResult ShowAppointmentsPerWeek(string AMKA)
         {
+            long doctorAMKA = long.Parse(AMKA);
             //Doctor doctor = db.Doctors.Find(doctorID);
             DateTime currentDate = DateTime.Now;
             DateTime currentWeek = currentDate.AddDays(7).Date;
@@ -110,7 +112,15 @@ namespace DoctorAppointments.Controllers
             return View();
         }
 
-        
+        public ActionResult RequestAmka1()
+        {
+            return View();
+        }
+
+        public ActionResult RequestAmka2()
+        {
+            return View();
+        }
 
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -36,8 +36,9 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/">Doctors</a>
 
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Select available dates", "Welcome", "Doctors1")</li>
-                            <li>@Html.ActionLink("My appointments", "AppointmentSchedule", "Doctors1")</li>
+                            <li>@Html.ActionLink("Select available dates", "Create", "Appointments")</li>
+                            <li>@Html.ActionLink("My appointments this week", "RequestAmka2", "Doctors1")</li>
+                            <li>@Html.ActionLink("My appointments today", "RequestAmka1", "Doctors1")</li>
                             <li>@Html.ActionLink("Delete appointment", "CancelAppointmentsDoc", "Appointments")</li>
                         </ul>
                     </li>
@@ -67,7 +68,7 @@
         @RenderBody()
         <hr />
         <footer>
-             <p>&copy; @DateTime.Now.Year - My MVC Application</p>-->
+             <p>&copy; @DateTime.Now.Year</p>
         </footer>
     </div>
 

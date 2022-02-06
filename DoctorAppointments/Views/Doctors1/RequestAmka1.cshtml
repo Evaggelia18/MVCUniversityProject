@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Today's Appointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Social Security Number</h2>
+
+
+@using (Html.BeginForm("ShowAppointmentsPerDay", "Doctors1", FormMethod.Get))
+{
+    @Html.Label("AMKA:")
+    @Html.TextBox("AMKA", null, new { @placeholder = "Type your AMKA" });
+    <input type="submit" value="Show Appointments" />
+}
